@@ -1,0 +1,77 @@
+.bookingForm-title{
+    letter-spacing: -1px;
+    font-size: 22px;
+}
+
+.location-field{
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px #f1f1f1;
+}
+
+.location-field:hover{
+    box-shadow: 0px 0px 3px 2px #d8d8d8;
+}
+
+.location-label{
+    display: block;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.location{
+    border: none;
+    font-size: 15px;
+}
+
+.location:focus{
+    outline: none;
+}
+
+.date-field{
+    padding: 15px 10px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px #f1f1f1;
+}
+
+.date-field:hover{
+    box-shadow: 0px 0px 3px 2px #d8d8d8;
+}
+
+.date-label{
+    display: block;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #adadad;
+}
+
+.date{
+    border: none;
+    font-size: 15px;
+    width: 100%;
+}
+
+.date:focus{
+    outline: none;
+}
+
+.search-btn{
+    width: 100%;
+    border: none;
+    padding: 7px 0;
+    border-radius: 7px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.search-btn:hover{
+    background-image: linear-gradient(to right,#71ed55,#2bde8c,#4ae474);
+}
+
+.search-btn:active{
+    border: none;
+}

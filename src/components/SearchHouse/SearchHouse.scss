@@ -1,0 +1,53 @@
+.house-img-search{
+    border-radius: 12px;
+}
+
+@media(max-width:575px){
+    .house-img-search{
+        margin-bottom: 20px;
+    }
+}
+
+.search-content{
+    h1{
+        font-size: 15px;
+        font-weight: 700;
+    }
+    h6{
+        word-spacing: 1px;
+        font-size: 14px;
+        color: #8c8c8c;
+    }
+    h5{
+        font-size: 14px;
+        color: #8e8e8e;
+        font-weight: 400;
+    }
+}
+
+.search-review{
+    h6{
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+}
+
+.search-cost{
+    h4{
+        font-size: 14px;
+        color: #868686;
+        font-weight: 400;
+        margin-bottom: 0;
+        span{
+            font-size: 17px;
+            font-weight: 700;
+            color: #000000;
+        }
+    }
+    p{
+        font-size: 13px;
+        color: #ababab;
+        margin-bottom: 0;
+    }
+}
