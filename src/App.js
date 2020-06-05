@@ -10,6 +10,7 @@ import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
 import HouseDetails from './pages/HouseDetails/HouseDetails';
+import BookingPage from './pages/BookingPage/BookingPage';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/house/:houseId">
             <HouseDetails />
+          </Route>
+          <Route exact path="/booking">
+            <BookingPage />
           </Route>
         </Switch>
       </Router>

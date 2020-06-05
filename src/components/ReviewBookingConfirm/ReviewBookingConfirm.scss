@@ -1,0 +1,55 @@
+.review{
+    h1{
+        color: black;
+        font-size: 40px;
+        margin-bottom: 0;
+        padding-bottom: 10px;
+    }
+    h5{
+        color: black;
+    }
+    p{
+        padding-top: 10px;
+        color: black;
+    }
+}
+
+.check-in-out{
+    span{
+        background-color: #cacaca;
+        color: black;
+        font-size: 15px;
+        font-weight: 700;
+        display: inline-block;
+        width: 65px;
+        padding: 10px;
+        text-align: center;
+    }
+    p{
+        display: inline-block;
+        position: relative;
+        padding-left: 10px;
+        bottom: 12px;
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+    }
+}
+
+.keep-mind{
+    h3{
+        margin-bottom: 0;
+        padding: 20px 0;
+        font-weight: 700;
+    
+    }
+    .keep-mind-item{
+        padding: 20px;
+        img{
+            width: 20px;
+        }
+        span{
+            padding-left: 30px;
+        }
+    }
+}

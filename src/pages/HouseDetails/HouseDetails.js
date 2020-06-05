@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import HouseImage from '../../components/HouseImage/HouseImage';
 import HouseInfo from '../../components/HouseInfo/HouseInfo';
+import TotalCostBox from '../../components/TotalCostBox/TotalCostBox';
 
 const HouseDetails = () => {
     const { houseId } = useParams();
@@ -31,6 +32,11 @@ const HouseDetails = () => {
                         <Col sm={12} md={12} lg={6} xl={6}>
                             {
                                 houses && <HouseInfo houses={houses}></HouseInfo>
+                            }
+                        </Col>
+                        <Col sm={12} md={12} lg={6} xl={6}>
+                            {
+                                houses && <TotalCostBox></TotalCostBox>
                             }
                         </Col>
                     </Row>
