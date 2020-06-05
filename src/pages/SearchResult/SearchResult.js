@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import MainApp from '../../app/MainApp';
 import SearchHouseList from '../../components/SearchHouseList/SearchHouseList';
-import Map from '../../components/Map/Map';
+import GoogleMap from '../../components/GoogleMap/GoogleMap';
 
 const SearchResult = () => {
     const {location} = useParams();
@@ -16,7 +16,7 @@ const SearchResult = () => {
                             <SearchHouseList location={location}></SearchHouseList>
                         </Col>
                         <Col sm={12} md={12} lg={6} xl={6} >
-                            <Map></Map>
+                            <GoogleMap></GoogleMap>
                         </Col>
                     </Row>
                 </Container>
