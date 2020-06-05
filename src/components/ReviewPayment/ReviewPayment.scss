@@ -1,0 +1,33 @@
+.payment-title{
+    h1{
+        font-size: 25px;
+    }
+}
+
+form{
+    h2{
+        font-size: 25px;
+        margin: 0;
+        padding-bottom: 15px;
+    }
+}
+
+.payment-box{
+    border: 1px solid #b3b3b3;
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.payment-label{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    color: #717171;
+}
+
+.pay{
+    border: none !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 10px 15px !important;
+}

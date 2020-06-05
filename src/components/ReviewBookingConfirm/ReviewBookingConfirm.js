@@ -2,9 +2,10 @@ import React from 'react';
 import './ReviewBookingConfirm.scss';
 import { Row, Col } from 'react-bootstrap';
 
-const ReviewBookingConfirm = () => {
+const ReviewBookingConfirm = (props) => {
+    const { showTravelInfo } = props;
     return (
-        <div className="review-booking">
+        <div className="review-booking mb-3">
             <div className="review">
                 <h1>Review house rules</h1>
                 <h5>{} night in {}</h5>
@@ -35,11 +36,12 @@ const ReviewBookingConfirm = () => {
                     <span>No parties and events</span>
                 </div>
                 <div className="keep-mind-item">
-                    <img src="https://i.ibb.co/3f8gpwQ/ic-smoking-rooms-48px.png" alt="ic-smoking-rooms-48px" border="0" className="img-fluid mx-auto"/>
+                    <img src="https://i.ibb.co/3f8gpwQ/ic-smoking-rooms-48px.png" alt="ic-smoking-rooms-48px" border="0" className="img-fluid mx-auto" />
                     <span>Smoking allowed</span>
                 </div>
-                </div>
             </div>
+            <button className="gradient-button agree" onClick={() => showTravelInfo()}>Agree and Continue</button>
+        </div>
     );
 };
 
