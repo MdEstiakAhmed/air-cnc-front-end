@@ -18,7 +18,7 @@ const Menubar = () => {
                             <Nav.Link className="menu-item" href="#">Host your experience</Nav.Link>
                             <Nav.Link className="menu-item" href="#">Help</Nav.Link>
                             <Nav.Link className="menu-item" href="#">Log in</Nav.Link>
-                            <Nav.Link className="menu-item sign-up gradient-button" href="#">Sign up</Nav.Link>
+                            <Nav.Link as = {Link} className="menu-item sign-up gradient-button" to="/sign-up">Sign up</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

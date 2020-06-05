@@ -9,12 +9,13 @@ import {
 import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
+import SingUp from './pages/SingUp/SingUp';
 
 function App() {
   return (
     <div>
-      <Menubar />
       <Router>
+      <Menubar />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/search/:location">
             <SearchResult />
+          </Route>
+          <Route exact path="/sign-up">
+            <SingUp />
           </Route>
         </Switch>
       </Router>
