@@ -9,14 +9,16 @@ import {
 import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
+import SingUp from './pages/SingUp/SingUp';
+import LogIn from './pages/LogIn/LogIn';
 import HouseDetails from './pages/HouseDetails/HouseDetails';
 import BookingPage from './pages/BookingPage/BookingPage';
 
 function App() {
   return (
     <div>
-      <Menubar />
       <Router>
+      <Menubar />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -26,6 +28,12 @@ function App() {
           </Route>
           <Route exact path="/search/:location">
             <SearchResult />
+          </Route>
+          <Route exact path="/sign-up">
+            <SingUp />
+          </Route>
+          <Route exact path="/login">
+            <LogIn />
           </Route>
           <Route exact path="/house/:houseId">
             <HouseDetails />
