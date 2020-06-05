@@ -10,6 +10,7 @@ import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
 import SingUp from './pages/SingUp/SingUp';
+import LogIn from './pages/LogIn/LogIn';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/sign-up">
             <SingUp />
+          </Route>
+          <Route exact path="/login">
+            <LogIn />
           </Route>
         </Switch>
       </Router>
