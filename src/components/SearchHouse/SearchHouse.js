@@ -16,7 +16,7 @@ const SearchHouse = (params) => {
                     <Link to={`/house/${house._id}`}>
                         <h1>{house.title}</h1>
                     </Link>
-                    <h6>{house.guest} guests  {house.bedroom} bedrooms  {house.bed} beds  {house.bath}baths</h6>
+                    <h6>{house.guest} guests  {house.bedroom} bedrooms  {house.bed} beds  {house.bath} baths</h6>
                     <h5>{house.features[0]}</h5>
                     <Row>
                         <Col sm={6} md={6} lg={6} xl={6} className="search-review">

@@ -12,6 +12,7 @@ import SearchResult from './pages/SearchResult/SearchResult';
 import SingUp from './pages/SingUp/SingUp';
 import LogIn from './pages/LogIn/LogIn';
 import HouseDetails from './pages/HouseDetails/HouseDetails';
+import BookingPage from './pages/BookingPage/BookingPage';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/house/:houseId">
             <HouseDetails />
+          </Route>
+          <Route exact path="/booking">
+            <BookingPage />
           </Route>
         </Switch>
       </Router>
