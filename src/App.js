@@ -9,6 +9,7 @@ import {
 import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
+import HouseDetails from './pages/HouseDetails/HouseDetails';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route exact path="/search/:location">
             <SearchResult />
+          </Route>
+          <Route exact path="/house/:houseId">
+            <HouseDetails />
           </Route>
         </Switch>
       </Router>
