@@ -11,6 +11,7 @@ import Home from './pages/Home/Home';
 import SearchResult from './pages/SearchResult/SearchResult';
 import SingUp from './pages/SingUp/SingUp';
 import LogIn from './pages/LogIn/LogIn';
+import HouseDetails from './pages/HouseDetails/HouseDetails';
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LogIn />
+          </Route>
+          <Route exact path="/house/:houseId">
+            <HouseDetails />
           </Route>
         </Switch>
       </Router>

@@ -14,7 +14,7 @@ const LogInForm = () => {
             <h2 className="bookingForm-title mb-4 text-center">Log In </h2>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group controlId="formBasicEmail">
-                    <div className="login-input mb-3">
+                    <div className="login-input">
                         <Controller 
                         as={
                             <PhoneInput
@@ -25,13 +25,16 @@ const LogInForm = () => {
                         
                         name="phone" control={control} defaultValue="" />
                     </div>
+                    <Form.Text className="text-muted px-3 pb-3">
+                         We'll text you to confirm your number. Standard message and data rate apply.
+                    </Form.Text>
                 </Form.Group>
                 <Button  className="search-btn gradient-button shadow-none border-0 p-3" type="submit">
                     Login
                 </Button>
             </Form>
             <div>
-                <p className="text-muted text-center m-3 p-3">Don't have an account? <Link className="font-weight-bold text-dark" to="/sign-up">Sign Up</Link></p>
+                <p className="text-muted text-center mt-1 mb-3 mx-3 pb-3 px-3">Don't have an account? <Link className="font-weight-bold text-dark" to="/sign-up">Sign Up</Link></p>
             </div>
         </div>
     );

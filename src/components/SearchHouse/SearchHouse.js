@@ -1,6 +1,7 @@
 import React from 'react';
 import './SearchHouse.scss';
 import { Row, Col, Image } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const SearchHouse = (params) => {
     const { house } = params;
@@ -12,7 +13,9 @@ const SearchHouse = (params) => {
                     <Image src={house.images[0]} fluid className="house-img-search" />
                 </Col>
                 <Col sm={7} md={7} lg={7} xl={7} className="search-content">
-                    <h1>{house.title}</h1>
+                    <Link to={`/house/${house._id}`}>
+                        <h1>{house.title}</h1>
+                    </Link>
                     <h6>{house.guest} guests  {house.bedroom} bedrooms  {house.bed} beds  {house.bath}baths</h6>
                     <h5>{house.features[0]}</h5>
                     <Row>
