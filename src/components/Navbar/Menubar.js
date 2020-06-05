@@ -1,13 +1,16 @@
 import React from 'react';
 import './Menubar.scss';
-import { Navbar, Nav, Container, Image  } from "react-bootstrap";
+import { Navbar, Nav, Container, Image } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 const Menubar = () => {
     return (
         <div>
             <Navbar bg="white" expand="lg" className="menu-bar">
                 <Container>
-                    <Navbar.Brand href="#"><Image src="https://i.ibb.co/SQFM3M8/logo.png" alt="air-cnc" title="air-cnc-logo" className="w-25" fluid /></Navbar.Brand>
+                    <Navbar.Brand href={'/home'}>
+                        <Image src="https://i.ibb.co/SQFM3M8/logo.png" alt="air-cnc" title="air-cnc-logo" className="w-25" fluid />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
