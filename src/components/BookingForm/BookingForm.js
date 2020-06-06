@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './BookingForm.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 const BookingForm = () => {
     const { register, handleSubmit } = useForm();
+    const [error, setError] = useState();
+    const [errorMessage, setErrorMessage] = useState();
+
     const onSubmit = data => {
-        // work with data
-        console.log(data);
-        window.location.href="/search/"+data.location;
+        if(data.location && data.arrival && data.departure){
+            if(new Date(data.departure) > new Date(data.arrival)){
+                if(new Date() < new Date(data.arrival)){
+                    window.location.href="/search/"+data.location+"/"+data.arrival+"/"+data.departure;
+                }
+                else{
+                    setError(true);
+                    setErrorMessage("arrival date is in past");
+                }
+            }
+            else{
+                setError(true);
+                setErrorMessage("error departure date");
+            }
+        }
+        else{
+            setError(true);
+            setErrorMessage("fill-up all field");
+        }
     };
 
     return (
@@ -35,6 +55,11 @@ const BookingForm = () => {
                 </Row>
                 <div>
                     <input type="submit" value="Search" className="search-btn gradient-button" />
+                    {
+                        error && <div class="alert alert-danger mt-3" role="alert">
+                        {errorMessage}
+                      </div>
+                    }
                 </div>
             </form>
         </div>

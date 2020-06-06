@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './HouseListArea.scss';
-import House from '../../components/House/House';
+import './ExperienceListArea.scss';
+import Experience from '../../components/Experience/Experience';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const HouseListArea = () => {
-    const [houses, setHouses] = useState(null);
+const ExperienceListArea = () => {
+    const [experiences, setExperiences] = useState(null);
 
     useEffect(() => {
-        fetch('https://air-cnc-backend.herokuapp.com/all-homes')
+        fetch('https://air-cnc-backend.herokuapp.com/all-experiences')
             .then(res => res.json())
             .then(data => {
-                setHouses(data);
+                setExperiences(data);
                 console.log(data);
             })
     }, [])
@@ -18,12 +18,12 @@ const HouseListArea = () => {
     return (
         <div>
             <Container>
-                <h2 className="mb-3 title-home">Homes</h2>
+                <h2 className="mb-3 title-home">experience</h2>
                 <Row>
                     {
-                        houses && houses.map(house => 
+                        experiences && experiences.map(experience => 
                             <Col sm={12} md={6} lg={4} xl={4} className="mb-5">
-                                <House house={house} key={house._id}></House>
+                                <Experience experience={experience} key={experience._id}></Experience>
                             </Col>
                         )
                     }
@@ -33,4 +33,4 @@ const HouseListArea = () => {
     );
 };
 
-export default HouseListArea;
+export default ExperienceListArea;

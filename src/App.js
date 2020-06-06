@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -14,9 +14,12 @@ import LogIn from './pages/LogIn/LogIn';
 import HouseDetails from './pages/HouseDetails/HouseDetails';
 import BookingPage from './pages/BookingPage/BookingPage';
 
+export const dataContext = createContext();
+
 function App() {
+  let [checkInOutDate, setCheckInOutDate] = useState({check_in: null, check_out: null})
   return (
-    <div>
+    <dataContext.Provider value={{checkInOutDate, setCheckInOutDate}}>
       <Router>
       <Menubar />
         <Switch>
@@ -26,7 +29,7 @@ function App() {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/search/:location">
+          <Route exact path="/search/:location/:arrival/:departure">
             <SearchResult />
           </Route>
           <Route exact path="/sign-up">
@@ -43,7 +46,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </dataContext.Provider>
   );
 }
 

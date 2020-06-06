@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './SignInForm.scss'
 import { Form, Button } from 'react-bootstrap';
 import { useForm, Controller } from "react-hook-form";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import { Link } from 'react-router-dom';
+import { dataContext } from '../../App';
 
 const SignInForm = () => {
     const { register, control, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
+    const demo = useContext(dataContext);
+    console.log(demo.checkInOutDate);
 
 
     return (
