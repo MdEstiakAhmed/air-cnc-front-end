@@ -16,6 +16,8 @@ const BookingPage = () => {
     const [payment, setPayment] = useState(false);
     const [bookingConfirm, setBookingConfirm] = useState(false);
 
+    const [paymentInfo, setPaymentInfo] = useState(null);
+
     const showTravelInfo = () => {
         setHouseBooking(false);
         setTravelInfo(true);
@@ -30,7 +32,8 @@ const BookingPage = () => {
         setBookingConfirm(false);
     }
 
-    const showBookingInfo = () => {
+    const showBookingInfo = (paymentInfo) => {
+        setPaymentInfo(paymentInfo);
         setHouseBooking(false);
         setTravelInfo(false);
         setPayment(false);
@@ -56,7 +59,7 @@ const BookingPage = () => {
                                 </Elements>
                             }
                             {
-                                bookingConfirm && <ReviewHouseBooking className="mt-4 mb-4"/>
+                                bookingConfirm && <ReviewHouseBooking paymentInfo={paymentInfo} className="mt-4 mb-4"/>
                             }
                         </Col>
                         <Col sm={12} md={12} lg={4} xl={4}></Col>

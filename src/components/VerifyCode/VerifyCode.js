@@ -17,9 +17,7 @@ const VerifyCode = (props) => {
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <div>
                 <ReactCodeInput  onComplete={val => setCode(val)} />
-             </div>
         </Modal.Body>
         <Modal.Footer>
             <Button className="btn border-0 gradient-button shadow-none" onClick={()=> props.getVerifyCode(code) && props.onHide}>Verify</Button>

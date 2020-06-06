@@ -3,6 +3,7 @@ import MainApp from '../../app/MainApp';
 import { Container, Row, Col } from 'react-bootstrap';
 import BookingForm from '../../components/BookingForm/BookingForm';
 import HouseListArea from '../../components/HouseListArea/HouseListArea';
+import ExperienceListArea from '../../components/ExperienceListArea/ExperienceListArea';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                             <BookingForm/>
                         </Col>
                         <Col sm={12} md={12} lg={8} xl={8} >
+                            {/* <ExperienceListArea/> */}
                             <HouseListArea/>
                         </Col>
                     </Row>

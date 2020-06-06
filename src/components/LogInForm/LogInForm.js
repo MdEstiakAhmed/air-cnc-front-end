@@ -16,7 +16,6 @@ firebase.initializeApp(firebaseConfig)
 const LogInForm = () => {
     const { control, handleSubmit } = useForm();
     const [ loginUser, setLoginUser ] = useState(null);
-    const [ phoneNum, setPhoneNum ] = useState(null)
     const [showSpinner, setShowSpinner] = useState(false);
     const [showVerifyCode, setShowVerifyCode] = useState(false);
     const [confirmationResult, SetConfirmationResult] = useState(null);
@@ -28,6 +27,7 @@ const LogInForm = () => {
         code && confirmationResult.confirm(code).then(function (result) {
         // User signed in successfully.
             const user = result.user;
+            setLoginUser(user)
             console.log(user)
         })
         .catch( (error) => {
@@ -37,11 +37,11 @@ const LogInForm = () => {
 
 
 
-    const sentOTP = () => {
+    const sentOTP = (number) => {
 
         const captchaVerifier = new firebase.auth.RecaptchaVerifier('captcha-container', {'size': 'invisible'});
-        const phoneNumber = "+8801761579485"
-         
+        debugger
+        const phoneNumber = number && "+"+number
         firebase.auth().signInWithPhoneNumber(phoneNumber, captchaVerifier)
             .then( (result) => {
                 setShowVerifyCode(true)
@@ -56,8 +56,7 @@ const LogInForm = () => {
 
     const onSubmit = (data) => {
         if(data.phone){
-            setPhoneNum(data.phone)
-            sentOTP()
+            sentOTP(data.phone)
             setShowSpinner(true)
         }        
         
@@ -89,7 +88,11 @@ const LogInForm = () => {
                                     />
                                 } 
                                 
-                                name="phone" control={control} defaultValue=""/>
+                                name="phone" 
+                                control={control}
+                                defaultValue="" 
+                                rules={{ required: true }}
+                                />
                             </div>                    
                             <Form.Text className="text-muted px-3 pb-3">
                                 We'll text you to confirm your number. Standard message and data rate apply.
@@ -105,7 +108,7 @@ const LogInForm = () => {
                     </div>
                 </div>
             
-                <VerifyCode show={showVerifyCode} getVerifyCode={getVerifyCode}/>
+                <VerifyCode show={showVerifyCode} onHide={() => setShowVerifyCode(false)} getVerifyCode={getVerifyCode}/>
                 
            
        

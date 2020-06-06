@@ -23,6 +23,7 @@ const ReviewPayment = (props) => {
             type: 'card',
             card: elements.getElement(CardNumberElement),
         });
+        let paymentInfo = null;
 
         if (value.error) {
             setPaymentError(value.error.message);
@@ -37,9 +38,8 @@ const ReviewPayment = (props) => {
                 card_last_four_digit: value.paymentMethod.card.last4,
                 created_code: value.paymentMethod.created
             }
-            // confirmOrder(paymentInfo);
+            showBookingInfo(paymentInfo);
         }
-        showBookingInfo();
     }
     return (
         <div className="mt-5 mb-3">
