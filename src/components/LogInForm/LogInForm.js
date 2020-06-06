@@ -16,7 +16,6 @@ firebase.initializeApp(firebaseConfig)
 const LogInForm = () => {
     const { control, handleSubmit } = useForm();
     const [ loginUser, setLoginUser ] = useState(null);
-    const [ phoneNumber, setPhoneNumber ] = useState(null)
     const [showSpinner, setShowSpinner] = useState(false);
     const [showVerifyCode, setShowVerifyCode] = useState(false);
     const [confirmationResult, SetConfirmationResult] = useState(null);
@@ -38,11 +37,11 @@ const LogInForm = () => {
 
 
 
-    const sentOTP = () => {
+    const sentOTP = (number) => {
 
         const captchaVerifier = new firebase.auth.RecaptchaVerifier('captcha-container', {'size': 'invisible'});
-        
-         
+        debugger
+        const phoneNumber = number && "+"+number
         firebase.auth().signInWithPhoneNumber(phoneNumber, captchaVerifier)
             .then( (result) => {
                 setShowVerifyCode(true)
@@ -57,8 +56,7 @@ const LogInForm = () => {
 
     const onSubmit = (data) => {
         if(data.phone){
-            setPhoneNumber(data.phone)
-            sentOTP()
+            sentOTP(data.phone)
             setShowSpinner(true)
         }        
         
