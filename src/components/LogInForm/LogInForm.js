@@ -4,10 +4,39 @@ import { Controller, useForm } from 'react-hook-form';
 import PhoneInput from 'react-phone-input-2';
 import { Link } from 'react-router-dom';
 
+import * as firebase from "firebase/app";
+import firebaseConfig from '../../firebase.config';
+import "firebase/auth";
+
+firebase.initializeApp(firebaseConfig)
+
 const LogInForm = () => {
     const { control, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
 
+    const onSubmit = (data) => {
+        console.log(data);
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
+            'size': 'invisible',
+            'callback': function(response) {
+
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                onSignInSubmit();
+            }
+        });
+          const onSignInSubmit = () =>{
+            const phoneNumber = "8801761579485"
+            const appVerifier = window.recaptchaVerifier;
+            firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+                .then(function (confirmationResult) {
+                    // SMS sent. Prompt user to type the code from the message, then sign the
+                    // user in with confirmationResult.confirm(code).
+                    window.confirmationResult = confirmationResult;
+                }).catch(function (error) {
+                    // Error; SMS not sent
+                    // ...
+                });
+            }
+    }
 
     return (
         <div>

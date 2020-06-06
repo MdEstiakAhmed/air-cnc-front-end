@@ -5,6 +5,8 @@ import { useForm, Controller } from "react-hook-form";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/bootstrap.css';
 import { Link } from 'react-router-dom';
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 const SignInForm = () => {
     const { register, control, handleSubmit } = useForm();
