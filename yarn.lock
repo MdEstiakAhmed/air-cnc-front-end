@@ -9908,6 +9908,11 @@ react-transition-group@^4.0.0, react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-verification-code-input@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/react-verification-code-input/-/react-verification-code-input-1.2.3.tgz#54cd7ec9ca237332a0bd30a987b130899eb079af"
+  integrity sha512-WAAR8um2ePscx9hYqFDeyHrWrN6XxJid6jOgxDUQGQhmnyaiyoKfT3JSGOyTRm4xJX4NboqstImwlk4jewEe2A==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
