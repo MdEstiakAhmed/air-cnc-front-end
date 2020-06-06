@@ -7,7 +7,7 @@ const ReviewHouseBooking = (props) => {
     console.log(data.checkInOutDate.check_in);
 
     const { paymentInfo } = props;
-    console.log(paymentInfo);
+    console.log("paymentInfo: ",paymentInfo);
 
     let purchaseInfo = {
         order_no: paymentInfo.created_code,
@@ -17,6 +17,7 @@ const ReviewHouseBooking = (props) => {
         check_in: data.checkInOutDate.check_in,
         check_out: data.checkInOutDate.check_out,
     };
+    console.log("purchaseInfo: ",purchaseInfo);
 
     // useEffect(() => {
     //     fetch('https://air-cnc-backend.herokuapp.com/all-bookings', {
@@ -44,28 +45,28 @@ const ReviewHouseBooking = (props) => {
             <table className="table text-center">
                 <tbody>
                     <tr>
-                        <th scope="col">Order ID:</th>
+                        <th scope="col">Arrival date:</th>
                         <th scope="col">{purchaseInfo.check_in}</th>
                     </tr>
                     <tr>
-                        <th scope="col">Payment ID:</th>
+                        <th scope="col">Departure date:</th>
                         <th scope="col">{purchaseInfo.check_out}</th>
                     </tr>
                     <tr>
                         <th scope="col">Order ID:</th>
-                        <th scope="col">{purchaseInfo.created_code}</th>
+                        <th scope="col">{paymentInfo.created_code}</th>
                     </tr>
                     <tr>
                         <th scope="col">Payment ID:</th>
-                        <th scope="col">{purchaseInfo.payment_id}</th>
+                        <th scope="col">{paymentInfo.payment_id}</th>
                     </tr>
                     <tr>
                         <th scope="col">Payment type:</th>
-                        <th scope="col">{purchaseInfo.card_type}</th>
+                        <th scope="col">{paymentInfo.card_type}</th>
                     </tr>
                     <tr>
                         <th scope="col">card Number:</th>
-                        <th scope="col">{purchaseInfo.card_last_four_digit}</th>
+                        <th scope="col">{paymentInfo.card_last_four_digit}</th>
                     </tr>
                 </tbody>
             </table>F

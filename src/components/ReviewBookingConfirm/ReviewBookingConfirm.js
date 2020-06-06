@@ -5,8 +5,6 @@ import { dataContext } from '../../App';
 
 const ReviewBookingConfirm = (props) => {
     let data = useContext(dataContext);
-    console.log(data.checkInOutDate.check_in);
-    console.log(new Date('2020-06-12').toLocaleString('en-us', { weekday: 'long' }));
 
     let check_in = new Date(data.checkInOutDate.check_in);
     let check_out = new Date(data.checkInOutDate.check_out);
