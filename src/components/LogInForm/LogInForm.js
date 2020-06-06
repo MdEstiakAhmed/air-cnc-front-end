@@ -18,16 +18,16 @@ const LogInForm = () => {
     const [ loginUser, setLoginUser ] = useState(null);
     const [ phoneNum, setPhoneNum ] = useState(null)
     const [showSpinner, setShowSpinner] = useState(false);
-    const [showVerify, setVerify] = useState(false);
+    const [showVerifyCode, setShowVerifyCode] = useState(false);
     const [confirmationResult, SetConfirmationResult] = useState(null);
 
     
     
      const getVerifyCode = (code) => {
-
-        confirmationResult.confirm(code).then(function (result) {
+        code && setShowVerifyCode(false)
+        code && confirmationResult.confirm(code).then(function (result) {
         // User signed in successfully.
-             const user = result.user;
+            const user = result.user;
             console.log(user)
         })
         .catch( (error) => {
@@ -44,8 +44,9 @@ const LogInForm = () => {
          
         firebase.auth().signInWithPhoneNumber(phoneNumber, captchaVerifier)
             .then( (result) => {
-                setVerify(true)  
+                setShowVerifyCode(true)
                 SetConfirmationResult(result)
+                setShowSpinner(false)
                 console.log(result)            
             })
             .catch( (error) => {
@@ -57,18 +58,17 @@ const LogInForm = () => {
         if(data.phone){
             setPhoneNum(data.phone)
             sentOTP()
+            setShowSpinner(true)
         }        
-        setShowSpinner(true)
+        
     }
 
   
     return (
         <>
             <div id="captcha-container"></div>
-            {
-                showVerify ?
-                <VerifyCode getVerifyCode={getVerifyCode}/>
-                :
+          
+                
         
                 <div>
                     <h2 className="bookingForm-title mb-4 text-center">Log In </h2>
@@ -105,7 +105,9 @@ const LogInForm = () => {
                     </div>
                 </div>
             
-            }
+                <VerifyCode show={showVerifyCode} getVerifyCode={getVerifyCode}/>
+                
+           
        
         </>
 
