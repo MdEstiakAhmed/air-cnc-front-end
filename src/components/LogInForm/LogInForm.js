@@ -89,7 +89,11 @@ const LogInForm = () => {
                                     />
                                 } 
                                 
-                                name="phone" control={control} defaultValue=""/>
+                                name="phone" 
+                                control={control}
+                                defaultValue="" 
+                                rules={{ required: true }}
+                                />
                             </div>                    
                             <Form.Text className="text-muted px-3 pb-3">
                                 We'll text you to confirm your number. Standard message and data rate apply.
@@ -105,7 +109,7 @@ const LogInForm = () => {
                     </div>
                 </div>
             
-                <VerifyCode show={showVerifyCode} getVerifyCode={getVerifyCode}/>
+                <VerifyCode show={showVerifyCode} onHide={() => setShowVerifyCode(false)} getVerifyCode={getVerifyCode}/>
                 
            
        
