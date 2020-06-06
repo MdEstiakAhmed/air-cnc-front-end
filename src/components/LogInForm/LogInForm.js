@@ -17,48 +17,36 @@ const LogInForm = () => {
     const { control, handleSubmit } = useForm();
     const [ loginUser, setLoginUser ] = useState(null);
     const [ phoneNum, setPhoneNum ] = useState(null)
-    const [ codeNum, setCodeNum ] = useState(null)
     const [showSpinner, setShowSpinner] = useState(false);
     const [showVerify, setVerify] = useState(false);
+    const [confirmationResult, SetConfirmationResult] = useState(null);
 
     
     
-    const handleCode = () => {
-        const value = prompt()
-        return value
-    }
+     const getVerifyCode = (code) => {
 
-    const handleCaptcha = () => {
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('captcha-container', {
-            'size': 'invisible',
-            'callback': function(response) {
-              // reCAPTCHA solved, allow signInWithPhoneNumber.
-              onSignInSubmit();
-            }
-          });
-    }
+        confirmationResult.confirm(code).then(function (result) {
+        // User signed in successfully.
+             const user = result.user;
+            console.log(user)
+        })
+        .catch( (error) => {
+            console.log(error)
+        })
+     }
 
-    const onSignInSubmit = () => {
-        handleCaptcha()
-        var appVerifier = window.recaptchaVerifier;
 
+
+    const sentOTP = () => {
+
+        const captchaVerifier = new firebase.auth.RecaptchaVerifier('captcha-container', {'size': 'invisible'});
         const phoneNumber = "+8801761579485"
          
-        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+        firebase.auth().signInWithPhoneNumber(phoneNumber, captchaVerifier)
             .then( (result) => {
-                setVerify(true)                
-                const code = handleCode()
-                result.confirm(code)
-
-                .then( (result) => {
-                    
-                        setLoginUser(result.user);
-                        console.log(result.user)
-                
-                })
-                .catch( (error) => {
-                    console.log(error)
-                });
+                setVerify(true)  
+                SetConfirmationResult(result)
+                console.log(result)            
             })
             .catch( (error) => {
                 console.log(error)
@@ -68,9 +56,8 @@ const LogInForm = () => {
     const onSubmit = (data) => {
         if(data.phone){
             setPhoneNum(data.phone)
-            setCodeNum(data.code)
-        }
-        onSignInSubmit()
+            sentOTP()
+        }        
         setShowSpinner(true)
     }
 
@@ -80,7 +67,7 @@ const LogInForm = () => {
             <div id="captcha-container"></div>
             {
                 showVerify ?
-                <VerifyCode/>
+                <VerifyCode getVerifyCode={getVerifyCode}/>
                 :
         
                 <div>
