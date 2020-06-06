@@ -40,7 +40,7 @@ const LogInForm = () => {
     const sentOTP = (number) => {
 
         const captchaVerifier = new firebase.auth.RecaptchaVerifier('captcha-container', {'size': 'invisible'});
-        debugger
+        
         const phoneNumber = number && "+"+number
         firebase.auth().signInWithPhoneNumber(phoneNumber, captchaVerifier)
             .then( (result) => {
