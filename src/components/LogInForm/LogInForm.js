@@ -6,38 +6,39 @@ import { Link } from 'react-router-dom';
 
 import * as firebase from "firebase/app";
 import firebaseConfig from '../../firebase.config';
-import "firebase/auth";
+
 
 firebase.initializeApp(firebaseConfig)
+
 
 const LogInForm = () => {
     const { control, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
-            'size': 'invisible',
-            'callback': function(response) {
+        console.log(data)
 
-                // reCAPTCHA solved, allow signInWithPhoneNumber.
-                onSignInSubmit();
-            }
-        });
-          const onSignInSubmit = () =>{
-            const phoneNumber = "8801761579485"
-            const appVerifier = window.recaptchaVerifier;
-            firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-                .then(function (confirmationResult) {
-                    // SMS sent. Prompt user to type the code from the message, then sign the
-                    // user in with confirmationResult.confirm(code).
-                    window.confirmationResult = confirmationResult;
-                }).catch(function (error) {
-                    // Error; SMS not sent
-                    // ...
+        const appVerifier  = new firebase.auth.RecaptchaVerifier('captcha-container');
+        const phoneNumber = "+"+data.phone;
+         
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then( (result) => {
+                const code = prompt();
+                result.confirm(code)
+                .then( (result) => {
+                    const user = result.user;
+                    console.log(user)
+                
+                })
+                .catch( (error) => {
+                    console.log(error)
                 });
-            }
+            })
+            .catch( (error) => {
+                console.log(error)
+            });
     }
 
+  
     return (
         <div>
             <h2 className="bookingForm-title mb-4 text-center">Log In </h2>
@@ -52,12 +53,13 @@ const LogInForm = () => {
                             />
                         } 
                         
-                        name="phone" control={control} defaultValue="" />
+                        name="phone" control={control} defaultValue=""/>
                     </div>
                     <Form.Text className="text-muted px-3 pb-3">
                          We'll text you to confirm your number. Standard message and data rate apply.
                     </Form.Text>
                 </Form.Group>
+                <div id="captcha-container"></div>
                 <Button  className="search-btn gradient-button shadow-none border-0 p-3" type="submit">
                     Login
                 </Button>
