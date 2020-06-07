@@ -3,8 +3,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Menubar from './components/Navbar/Menubar';
 import Home from './pages/Home/Home';

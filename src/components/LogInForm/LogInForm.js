@@ -28,10 +28,10 @@ const LogInForm = () => {
         // User signed in successfully.
             const user = result.user;
             setLoginUser(user)
-            console.log(user)
+            // console.log(user)
         })
         .catch( (error) => {
-            console.log(error)
+            // console.log(error)
         })
      }
 
@@ -47,10 +47,10 @@ const LogInForm = () => {
                 setShowVerifyCode(true)
                 SetConfirmationResult(result)
                 setShowSpinner(false)
-                console.log(result)            
+                // console.log(result)            
             })
             .catch( (error) => {
-                console.log(error)
+                // console.log(error)
             });
     }
 

@@ -24,7 +24,7 @@ const ReviewBookingConfirm = (props) => {
         <div className="review-booking mb-3">
             <div className="review">
                 <h1>Review house rules</h1>
-                <h5>{Difference_In_Days} night here</h5>
+                <h5>{Difference_In_Days} night stay</h5>
                 <Row>
                     <Col sm={6} md={6} lg={6} xl={6} className="check-in-out">
                         <span>{check_in_month} {check_in_date}</span>

@@ -3,7 +3,6 @@ import './HouseInfo.scss';
 
 const HouseInfo = (props) => {
     const { houses } = props;
-    console.log(houses);
     return (
         <div>
             <section className="Basic">

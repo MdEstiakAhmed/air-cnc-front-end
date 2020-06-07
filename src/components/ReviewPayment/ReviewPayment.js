@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './ReviewPayment.scss';
 import { Button } from 'react-bootstrap';
 import {
-    CardElement,
     useStripe,
     useElements,
     CardNumberElement,
@@ -23,7 +22,6 @@ const ReviewPayment = (props) => {
             type: 'card',
             card: elements.getElement(CardNumberElement),
         });
-        let paymentInfo = null;
 
         if (value.error) {
             setPaymentError(value.error.message);

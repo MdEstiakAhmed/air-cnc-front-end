@@ -11,7 +11,6 @@ const ExperienceListArea = () => {
             .then(res => res.json())
             .then(data => {
                 setExperiences(data);
-                console.log(data);
             })
     }, [])
 

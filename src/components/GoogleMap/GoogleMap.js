@@ -1,9 +1,9 @@
 import React from 'react';
 import './GoogleMap.scss';
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 
 const GoogleMap = () => {
-    const AnyReactComponent = ({ text }) => <div>{text}</div>;
+    // const AnyReactComponent = ({ text }) => <div>{text}</div>;
     return (
         <div className="map-style">
             {/* <div style={{ height: '100%', width: '100%' }}>

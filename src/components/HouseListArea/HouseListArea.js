@@ -11,7 +11,6 @@ const HouseListArea = () => {
             .then(res => res.json())
             .then(data => {
                 setHouses(data);
-                console.log(data);
             })
     }, [])
 

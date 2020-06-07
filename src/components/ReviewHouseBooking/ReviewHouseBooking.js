@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './ReviewHouseBooking.scss';
 import { dataContext } from '../../App';
 
 const ReviewHouseBooking = (props) => {
     const data = useContext(dataContext);
-    console.log(data.checkInOutDate.check_in);
+    // console.log(data.checkInOutDate.check_in);
 
     const { paymentInfo } = props;
-    console.log("paymentInfo: ",paymentInfo);
+    // console.log("paymentInfo: ",paymentInfo);
 
     let purchaseInfo = {
         order_no: paymentInfo.created_code,
@@ -17,7 +17,7 @@ const ReviewHouseBooking = (props) => {
         check_in: data.checkInOutDate.check_in,
         check_out: data.checkInOutDate.check_out,
     };
-    console.log("purchaseInfo: ",purchaseInfo);
+    // console.log("purchaseInfo: ",purchaseInfo);
 
     // useEffect(() => {
     //     fetch('https://air-cnc-backend.herokuapp.com/all-bookings', {

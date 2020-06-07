@@ -1,8 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './BookingForm.scss';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
 
 const BookingForm = () => {
     const { register, handleSubmit } = useForm();
@@ -10,22 +9,22 @@ const BookingForm = () => {
     const [errorMessage, setErrorMessage] = useState();
 
     const onSubmit = data => {
-        if(data.location && data.arrival && data.departure){
-            if(new Date(data.departure) > new Date(data.arrival)){
-                if(new Date() < new Date(data.arrival)){
-                    window.location.href="/search/"+data.location+"/"+data.arrival+"/"+data.departure;
+        if (data.location && data.arrival && data.departure) {
+            if (new Date(data.departure) > new Date(data.arrival)) {
+                if (new Date() < new Date(data.arrival)) {
+                    window.location.href = "/search/" + data.location + "/" + data.arrival + "/" + data.departure;
                 }
-                else{
+                else {
                     setError(true);
                     setErrorMessage("arrival date is in past");
                 }
             }
-            else{
+            else {
                 setError(true);
                 setErrorMessage("error departure date");
             }
         }
-        else{
+        else {
             setError(true);
             setErrorMessage("fill-up all field");
         }
@@ -37,7 +36,13 @@ const BookingForm = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="location-field">
                     <label htmlFor="location" className="location-label">LOCATION</label>
-                    <input id="location" className="location" name="location" placeholder="Add city, landmark or address" ref={register} />
+                    {/* <input id="location" className="location" name="location" placeholder="Add city, landmark or address" ref={register} /> */}
+                    <select id="location" className="location" name="location" placeholder="Add city, landmark or address" ref={register}>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="gulshan">Gulshan</option>
+                        <option value="mirpur">Mirpur</option>
+                        <option value="rajshahi">rajshahi</option>
+                    </select>
                 </div>
                 <Row className="mt-4">
                     <Col sm={6} md={6} lg={6} xl={6}>
@@ -57,8 +62,8 @@ const BookingForm = () => {
                     <input type="submit" value="Search" className="search-btn gradient-button" />
                     {
                         error && <div class="alert alert-danger mt-3" role="alert">
-                        {errorMessage}
-                      </div>
+                            {errorMessage}
+                        </div>
                     }
                 </div>
             </form>

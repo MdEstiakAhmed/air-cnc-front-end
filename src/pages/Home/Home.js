@@ -3,7 +3,7 @@ import MainApp from '../../app/MainApp';
 import { Container, Row, Col } from 'react-bootstrap';
 import BookingForm from '../../components/BookingForm/BookingForm';
 import HouseListArea from '../../components/HouseListArea/HouseListArea';
-import ExperienceListArea from '../../components/ExperienceListArea/ExperienceListArea';
+// import ExperienceListArea from '../../components/ExperienceListArea/ExperienceListArea';
 
 const Home = () => {
     return (
