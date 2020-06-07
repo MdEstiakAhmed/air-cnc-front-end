@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './BookingForm.scss';
 import { Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
+import GuestCount from '../../components/GuestCount/GuestCount';
 
 const BookingForm = () => {
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState();
     const [errorMessage, setErrorMessage] = useState();
 
-    const onSubmit = data => {
+    const onSubmit = (data) => {
         if (data.location && data.arrival && data.departure) {
             if (new Date(data.departure) > new Date(data.arrival)) {
                 if (new Date() < new Date(data.arrival)) {
@@ -66,7 +67,10 @@ const BookingForm = () => {
                         </div>
                     }
                 </div>
+                <GuestCount/>
             </form>
+            <div>
+            </div>
         </div>
     );
 };

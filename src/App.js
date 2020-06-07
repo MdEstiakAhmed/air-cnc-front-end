@@ -16,9 +16,10 @@ import BookingPage from './pages/BookingPage/BookingPage';
 export const dataContext = createContext();
 
 function App() {
-  let [checkInOutDate, setCheckInOutDate] = useState({check_in: null, check_out: null})
+  let [checkInOutDate, setCheckInOutDate] = useState({check_in: null, check_out: null});
+  const [guestCount, setGuestCount] = useState({adult: 0, child: 0, baby: 0});
   return (
-    <dataContext.Provider value={{checkInOutDate, setCheckInOutDate}}>
+    <dataContext.Provider value={{checkInOutDate, setCheckInOutDate, guestCount, setGuestCount}}>
       <Router>
       <Menubar />
         <Switch>
