@@ -1,66 +1,120 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { dataContext } from '../../App';
+import './GuestCount.scss';
 
 const GuestCount = () => {
-    let count = useContext(dataContext);
-    console.log(count);
+    let { checkInOutDate, setCheckInOutDate, guestCount, setGuestCount } = useContext(dataContext);
+    let [adult, setAdult] = useState(0);
+    let [baby, setBaby] = useState(0);
+    let [child, setChild] = useState(0);
 
     const adultIncrease = () => {
-        count.guestCount.adult = count.guestCount.adult + 1;
-        count.setGuestCount(count.guestCount);
-        console.log("adult", count.guestCount.adult);
+        guestCount.adult = guestCount.adult + 1;
+        setGuestCount(guestCount);
+        adult = adult + 1;
+        setAdult(adult);
     }
     const adultDecrease = () => {
-        count.guestCount.adult = count.guestCount.adult - 1;
-        count.setGuestCount(count.guestCount);
-        console.log("adult",count.guestCount.adult);
+        if (adult > 0) {
+            guestCount.adult = guestCount.adult - 1;
+            setGuestCount(guestCount);
+            adult = adult - 1;
+            setAdult(adult);
+        }
     }
     const childIncrease = () => {
-        count.guestCount.child = count.guestCount.child + 1;
-        count.setGuestCount(count.guestCount);
-        console.log("child", count.guestCount.child);
+        guestCount.child = guestCount.child + 1;
+        setGuestCount(guestCount);
+        child = child + 1;
+        setChild(child);
     }
     const childDecrease = () => {
-        count.guestCount.child = count.guestCount.child - 1;
-        count.setGuestCount(count.guestCount);
-        console.log("child",count.guestCount.child);
+        if (child > 0) {
+            guestCount.child = guestCount.child - 1;
+            setGuestCount(guestCount);
+            child = child - 1;
+            setChild(child);
+        }
     }
     const babyIncrease = () => {
-        count.guestCount.baby = count.guestCount.baby + 1;
-        count.setGuestCount(count.guestCount);
-        console.log("baby", count.guestCount.baby);
+        guestCount.baby = guestCount.baby + 1;
+        setGuestCount(guestCount);
+        baby = baby + 1;
+        setBaby(baby);
     }
     const babyDecrease = () => {
-        count.guestCount.baby = count.guestCount.baby - 1;
-        count.setGuestCount(count.guestCount);
-        console.log("baby",count.guestCount.baby);
+        if (baby > 0) {
+            guestCount.baby = guestCount.baby - 1;
+            setGuestCount(guestCount);
+            baby = baby - 1;
+            setBaby(baby);
+        }
     }
 
     return (
-        <div>
+        <div className="guest-box">
+            {
+                adult <= 0 && child <= 0 && baby <= 0 ?
+                    <div className="guest-count-box">no guest selected</div> :
+                    <div className="guest-count-box">
+                        {adult > 0 && <span className="guest-count">{adult} adult </span>}
+                        {child > 0 && <span className="guest-count">{child} child </span>}
+                        {baby > 0 && <span className="guest-count">{baby} baby</span>}
+                    </div>
+            }
             <div>
-                <span>{count.guestCount.adult} adults </span>
-                <span>{count.guestCount.child} child
-                </span>
-                <span>{count.guestCount.baby} baby</span>
+                <div className="row justify-content-around  guest-part">
+                    <div className="col">
+                        <span className="guest-type">adults</span>
+                    </div>
+                    <div className="col-6">
+                        <div className="guest-change">
+                            <button onClick={adultDecrease} className="guest-change-button">
+                                <span className="guest-change-sign pr-2">-</span>
+                            </button>
+                            <span className="guest-change-value">{adult}</span>
+                            <button onClick={adultIncrease} className="guest-change-button">
+                                <span className="guest-change-sign pl-2">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
-                <span>adults</span>
-                <button onClick={adultDecrease}>-</button>
-                <span>{count.guestCount.adult}</span>
-                <button onClick={adultIncrease}>+</button>
+                <div className="row justify-content-around guest-part">
+                    <div className="col">
+                        <span className="guest-type">child</span>
+                    </div>
+                    <div className="col-6">
+                        <div className="guest-change">
+                            <button onClick={childDecrease} className="guest-change-button">
+                                <span className="guest-change-sign pr-2">-</span>
+                            </button>
+                            <span className="guest-change-value">{child}</span>
+                            <button onClick={childIncrease} className="guest-change-button">
+                                <span className="guest-change-sign pl-2">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
-                <span>child</span>
-                <button onClick={childDecrease}>-</button>
-                <span>{count.guestCount.child}</span>
-                <button onClick={childIncrease}>+</button>
-            </div>
-            <div>
-                <span>baby</span>
-                <button onClick={babyDecrease}>-</button>
-                <span>{count.guestCount.baby}</span>
-                <button onClick={babyIncrease}>+</button>
+                <div className="row justify-content-around  guest-part">
+                    <div className="col">
+                        <span className="guest-type">baby</span>
+                    </div>
+                    <div className="col-6">
+                        <div className="guest-change">
+                            <button onClick={babyDecrease} className="guest-change-button">
+                                <span className="guest-change-sign pr-2">-</span>
+                            </button>
+                            <span className="guest-change-value">{baby}</span>
+                            <button onClick={babyIncrease} className="guest-change-button">
+                                <span className="guest-change-sign pl-2">+</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

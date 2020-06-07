@@ -1,0 +1,48 @@
+.guest-box{
+    box-shadow: 0 0 1px 0 #bbbbbb;
+    border-radius: 5px;
+    margin-top: 25px;
+    position: relative;
+    bottom: 75px;
+}
+
+.guest-count-box{
+    box-shadow: 0 0 1px 0 #bbbbbb;
+    padding: 20px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.guest-part{
+    padding: 20px 15px;
+}
+
+.guest-type{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.guest-change{
+    text-align: right;
+}
+
+.guest-change-button{
+    background-color: white;
+    border: none;
+}
+.guest-change-button:focus{
+    outline: none;
+}
+
+.guest-change-value{
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0 15px;
+}
+
+.guest-change-sign{
+    font-size: 20px;
+    font-weight: 700;
+}

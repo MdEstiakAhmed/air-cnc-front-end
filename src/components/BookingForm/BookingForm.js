@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './BookingForm.scss';
 import { Row, Col } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
 import GuestCount from '../../components/GuestCount/GuestCount';
+import { dataContext } from '../../App';
 
 const BookingForm = () => {
+    const { guestCount } = useContext(dataContext);
+    console.log(guestCount);
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState();
     const [errorMessage, setErrorMessage] = useState();
@@ -13,7 +16,14 @@ const BookingForm = () => {
         if (data.location && data.arrival && data.departure) {
             if (new Date(data.departure) > new Date(data.arrival)) {
                 if (new Date() < new Date(data.arrival)) {
-                    window.location.href = "/search/" + data.location + "/" + data.arrival + "/" + data.departure;
+                    if ((guestCount.adult + guestCount.child + guestCount.baby) > 0) {
+                        setError(false);
+                        window.location.href = "/search/" + data.location + "/" + data.arrival + "/" + data.departure;
+                    }
+                    else {
+                        setError(true);
+                        setErrorMessage("Select guest");
+                    }
                 }
                 else {
                     setError(true);
@@ -61,14 +71,14 @@ const BookingForm = () => {
                 </Row>
                 <div>
                     <input type="submit" value="Search" className="search-btn gradient-button" />
-                    {
-                        error && <div class="alert alert-danger mt-3" role="alert">
-                            {errorMessage}
-                        </div>
-                    }
                 </div>
-                <GuestCount/>
             </form>
+            <GuestCount />
+            {
+                error && <div class="alert alert-danger mt-3 search-e" role="alert">
+                    {errorMessage}
+                </div>
+            }
             <div>
             </div>
         </div>

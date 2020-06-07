@@ -67,12 +67,19 @@
     color: white;
     font-weight: 600;
     font-size: 18px;
+    position: relative;
+    top: 290px;
+}
+
+.search-error{
+    position: relative !important;
+    bottom: -300px;
 }
 
 .search-btn:hover{
     background-image: linear-gradient(to right,#71ed55,#2bde8c,#4ae474);
 }
 
-.search-btn:active{
-    border: none;
+.search-btn:focus{
+    outline: none;
 }

@@ -24,6 +24,9 @@ const SearchHouseList = (params) => {
 
     return (
         <div>
+            {
+                
+            }
             <Container>
                 <h5 className="mb-1 title-home">
                     {
