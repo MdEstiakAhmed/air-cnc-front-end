@@ -7,7 +7,7 @@ const Experience = (props) => {
     <div>
       <div>
         <div>
-          <Image src={experience.images} fluid className="house-img" />
+          <Image src={experience.Images} fluid className="house-img" />
           <h6 className="city">{experience.location.city}</h6>
           <h4 className="title">{experience.title}</h4>
           <h5 className="price">${experience.price} per person</h5>
