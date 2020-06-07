@@ -7,7 +7,7 @@ import { dataContext } from '../../App';
 
 const BookingForm = () => {
     const { guestCount } = useContext(dataContext);
-    console.log(guestCount);
+    // console.log(guestCount);
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState();
     const [errorMessage, setErrorMessage] = useState();
